@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const UserSchema = new Schema({
   email: { type: String, unique: true },
   sub: { type: String, unique: true },
+  pool: { class: { type: String }, gods: [{ type: String }] },
   updated: { type: String, default: Date(Date.now()) },
 });
 

@@ -2,6 +2,8 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 import Logo from "../assets/SmiteLogo.png";
 import CheckBox from "../components/CheckBox/CheckBox";
+import { GoogleLogin, GoogleLogout } from "react-google-login";
+import env from "../env.json";
 import axios from "axios";
 
 class Home extends Component {
@@ -11,10 +13,10 @@ class Home extends Component {
       { class: "Warrior", checked: true },
       { class: "Assassin", checked: true },
       { class: "Mage", checked: true },
-      { class: "Hunter", checked: true }
+      { class: "Hunter", checked: true },
     ],
     team: [],
-    random: ""
+    random: "",
   };
 
   componentDidUpdate() {
@@ -35,10 +37,10 @@ class Home extends Component {
           array[Math.floor(Math.random() * array.length)] +
           "/random"
       )
-      .then(res => {
+      .then((res) => {
         this.setState({ random: res.data });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }
@@ -50,13 +52,13 @@ class Home extends Component {
       if (randomclass.checked) {
         axios
           .get("/api/gods/" + randomclass.class + "/random")
-          .then(res => {
+          .then((res) => {
             let array = this.state.team;
             array.push(res.data);
             this.setState({ team: array });
             this.randomizeJoust();
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       }
@@ -74,13 +76,13 @@ class Home extends Component {
       if (randomclass.checked) {
         axios
           .get("/api/gods/" + randomclass.class + "/random")
-          .then(res => {
+          .then((res) => {
             let array = this.state.team;
             array.push(res.data);
             this.setState({ team: array });
             this.randomizeConquest();
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       }
@@ -90,7 +92,7 @@ class Home extends Component {
     }
   }
 
-  changeCheckBox = event => {
+  changeCheckBox = (event) => {
     const { name, checked } = event.target;
     for (let i = 0; i < this.state.gods.length; i++) {
       if (name === this.state.gods[i].class) {
@@ -145,7 +147,7 @@ class Home extends Component {
           </div>
         </div>
         <div className="row">
-          {this.state.gods.map(array => {
+          {this.state.gods.map((array) => {
             return (
               <CheckBox
                 class={array.class}

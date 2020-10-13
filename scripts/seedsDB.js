@@ -44,6 +44,7 @@ const godsSeed = [
       "Bacchus",
       "Cabrakan",
       "Cerberus",
+      "Cthulhu",
       "Fafnir",
       "Ganesha",
       "Geb",

@@ -9,7 +9,7 @@
     "dotenv": "^8.2.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
-    "react-google-login": "^5.1.1",
+    "react-google-login": "^5.1.20",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.3.0"
   },

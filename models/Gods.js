@@ -4,8 +4,8 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const GodsSchema = new Schema({
-  class: String,
-  name: [{ type: String }]
+  class: { type: String },
+  name: [{ type: String }],
 });
 
 // This creates our model from the above schema, using mongoose's model method
